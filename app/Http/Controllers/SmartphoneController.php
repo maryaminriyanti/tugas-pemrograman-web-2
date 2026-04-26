@@ -14,7 +14,7 @@ class SmartphoneController extends Controller
     {
         return view('smartphone.index', [
             'title' => 'Smartphone',
-            'smartphones' => Smartphone::all(),
+            'smartphones' => Smartphone::latest()->get(),
             ]);
     }
 
@@ -113,6 +113,7 @@ class SmartphoneController extends Controller
      */
     public function destroy(Smartphone $smartphone)
     {
-        //
+        $smartphone->delete($smartphone);
+        return to_route('smartphone.index')->withSuccess('Data berhasil dihapus');
     }
 }

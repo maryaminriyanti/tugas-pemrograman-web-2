@@ -10,3 +10,4 @@ Route::get('/smartphone/create', [SmartphoneController::class, 'create'])->name(
 Route::post('/smartphone/store', [SmartphoneController::class, 'store'])->name('smartphone.store');
 Route::get('/smartphone/{smartphone}/edit', [SmartphoneController::class, 'edit'])->name('smartphone.edit');
 Route::put('/smartphone/{smartphone}', [SmartphoneController::class, 'update'])->name('smartphone.update');
+Route::delete('/smartphone/{smartphone}', [SmartphoneController::class, 'destroy'])->name('smartphone.destroy');
