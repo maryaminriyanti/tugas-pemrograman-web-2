@@ -12,8 +12,14 @@
 
     <ul class="list-group">
         @foreach ($smartphones as $smartphone)
-            <li class="list-group-item">{{ $loop->iteration }}. {{ $smartphone->name }} --
-                Rp{{ number_format($smartphone->price) }}</li>
+            <li class="list-group-item">
+                {{ $loop->iteration }}. {{ $smartphone->name }} -- Rp{{ number_format($smartphone->price) }}
+
+                <a class="btn btn-warning btn-sm" href="{{ route('smartphone.edit', $smartphone) }}"
+                    role="button">Edit</a>
+
+
+            </li>
         @endforeach
 
     </ul>
