@@ -2,5 +2,12 @@
 
     <x-slot:title>{{ $title }}</x-slot>
 
-    <h1 class="fw-bold">Data Smartphone</h1>
+    <ul class="list-group">
+        @foreach ($smartphones as $smartphone)
+            <li class="list-group-item">{{ $loop->iteration }}. {{ $smartphone->name }} --
+                Rp{{ number_format($smartphone->price) }}</li>
+        @endforeach
+
+    </ul>
+
 </x-app>
