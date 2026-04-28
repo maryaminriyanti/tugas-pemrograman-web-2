@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Smartphone;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,10 @@ class SmartphoneController extends Controller
      */
     public function create()
     {
-        return view('smartphone.create', ['title' => 'Create Smartphone']);
+         return view('smartphone.create', 
+         ['title' => 'Create Smartphone',
+        'brands' => Brand::latest()->get(),
+    ]);
     }
 
     /**

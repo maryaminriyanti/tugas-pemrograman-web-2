@@ -70,6 +70,22 @@
             @enderror
         </div>
 
+        <div class="mb-3">
+            <label class="form-label">Brand</label>
+            <select class="form-control @error('brand_id') is-invalid @enderror" name="brand_id">
+                <option value="">-- Pilih Brand --</option>
+                @foreach ($brands as $brand)
+                    <option value="{{ $brand->id }}" {{ old('brand_id') == $brand->id ? 'selected' : '' }}>
+                        {{ $brand->name }}
+                    </option>
+                @endforeach
+            </select>
+
+            @error('brand_id')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
         <a class="btn btn-warning" href="{{ route('smartphone.index') }}" role="button">Cancel</a>
 
         <button type="submit" class="btn btn-primary">Submit</button>
