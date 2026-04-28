@@ -85,10 +85,11 @@ class SmartphoneController extends Controller
      */
     public function edit(Smartphone $smartphone)
     {
-        return view('smartphone.edit', [
-            'title' => 'Edit Smartphone',
-            'smartphone' => $smartphone,
-        ]);
+        return view('smartphone.edit', 
+            ['title' => 'Edit Lecturer',
+                'brands'=> Brand::latest()->get(),
+                'smartphone' => $smartphone,
+            ]);
     }
 
     /**
