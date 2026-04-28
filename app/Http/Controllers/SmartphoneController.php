@@ -12,11 +12,17 @@ class SmartphoneController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $query = Smartphone::latest();
+
+        if ($request->keyword) {
+            $query->where('name', 'like', '%' . $request->keyword . '%');
+        }
+
         return view('smartphone.index', [
             'title' => 'Smartphone',
-            'smartphones' => Smartphone::latest()->get(),
+            'smartphones' => $query->paginate(5)->withQueryString(),
         ]);
     }
 
@@ -39,6 +45,7 @@ class SmartphoneController extends Controller
             'ram' => 'required|numeric',
             'storage' => 'required|numeric',
             'release_year' => 'required|numeric|digits:4',
+            'brand_id' => 'required|exists:brands,id',
         ], [
             'name.required' => 'Nama tidak boleh kosong',
             'name.max' => 'Nama tidak boleh lebih dari :max karakter',
@@ -91,6 +98,7 @@ class SmartphoneController extends Controller
             'ram' => 'required|numeric',
             'storage' => 'required|numeric',
             'release_year' => 'required|numeric|digits:4',
+            'brand_id' => 'required|exists:brands,id',
         ], [
             'name.required' => 'Nama tidak boleh kosong',
             'name.max' => 'Nama tidak boleh lebih dari :max karakter',

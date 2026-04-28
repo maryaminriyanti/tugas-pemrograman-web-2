@@ -13,11 +13,11 @@ class BrandSeeder extends Seeder
      */
     public function run(): void
     {
+        Brand::create(['name' => 'Realme', 'origin' => 'China', 'category' => 'Elektronik']);
         Brand::create(['name' => 'Samsung', 'origin' => 'Korea', 'category' => 'Elektronik']);
         Brand::create(['name' => 'Xiaomi', 'origin' => 'China', 'category' => 'Elektronik']);
-        Brand::create(['name' => 'Realme', 'origin' => 'China', 'category' => 'Elektronik']);
+        Brand::create(['name' => 'Infinix', 'origin' => 'China', 'category' => 'Elektronik']);
         Brand::create(['name' => 'Vivo', 'origin' => 'China', 'category' => 'Elektronik']);
         Brand::create(['name' => 'Oppo', 'origin' => 'China', 'category' => 'Elektronik']);
-        Brand::create(['name' => 'Infinix', 'origin' => 'China', 'category' => 'Elektronik']);
     }
 }
