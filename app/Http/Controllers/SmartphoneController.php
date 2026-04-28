@@ -77,7 +77,11 @@ class SmartphoneController extends Controller
      */
     public function show(Smartphone $smartphone)
     {
-        //
+        return view('smartphone.show', 
+            ['title' => 'Detail Smartphone',
+            'smartphone'=> $smartphone,
+            
+            ]);
     }
 
     /**

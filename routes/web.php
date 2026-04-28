@@ -14,4 +14,5 @@ Route::put('/smartphone/{smartphone}', [SmartphoneController::class, 'update'])-
 Route::delete('/smartphone/{smartphone}', [SmartphoneController::class, 'destroy'])->name('smartphone.destroy');
 
 Route::resource('brand', BrandController::class);
+Route::resource('smartphone', SmartphoneController::class);
 

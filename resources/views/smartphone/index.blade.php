@@ -48,6 +48,9 @@
                     <td>{{ $smartphone->release_year }}</td>
 
                     <td>
+
+                        <a class="btn btn-info btn-sm" href="{{ route('smartphone.show', $smartphone) }}">Show</a>
+
                         <a class="btn btn-warning btn-sm" href="{{ route('smartphone.edit', $smartphone) }}">
                             Edit
                         </a>
