@@ -56,7 +56,7 @@
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger btn-sm"
-                                onclick="return confirm('Anda yakin?')">Delete</button>
+                                onclick="return confirm('Yakin ingin menghapus data ini?')">Delete</button>
                         </form>
                     </td>
                 </tr>

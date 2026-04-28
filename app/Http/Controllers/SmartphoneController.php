@@ -132,6 +132,6 @@ class SmartphoneController extends Controller
     {
         $smartphone->delete($smartphone);
 
-        return to_route('smartphone.index')->withSuccess('Data berhasil dihapus');
+        return to_route('smartphone.index')->withSuccess('Data Berhasil Di Hapus');
     }
 }
