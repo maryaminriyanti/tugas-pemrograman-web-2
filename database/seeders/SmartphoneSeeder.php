@@ -13,6 +13,6 @@ class SmartphoneSeeder extends Seeder
      */
     public function run(): void
     {
-        Smartphone::factory()->count(100)->create();
+        Smartphone::factory()->count(500)->create();
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Smartphone;
 use Illuminate\Http\Request;
 
+
+
 class SmartphoneController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class SmartphoneController extends Controller
         return view('smartphone.index', [
             'title' => 'Smartphone',
             'smartphones' => Smartphone::latest()->get(),
-            ]);
+        ]);
     }
 
     /**
@@ -37,24 +39,25 @@ class SmartphoneController extends Controller
             'ram' => 'required|numeric',
             'storage' => 'required|numeric',
             'release_year' => 'required|numeric|digits:4',
-    ],[
-        'name.required' => 'Nama tidak boleh kosong',
-        'name.max' => 'Nama tidak boleh lebih dari :max karakter',
-        'price.required' => 'Harga tidak boleh kosong',
-        'price.numeric' => 'Harga harus berupa angka',
+        ], [
+            'name.required' => 'Nama tidak boleh kosong',
+            'name.max' => 'Nama tidak boleh lebih dari :max karakter',
+            'price.required' => 'Harga tidak boleh kosong',
+            'price.numeric' => 'Harga harus berupa angka',
 
-        'ram.required' => 'RAM tidak boleh kosong',
-        'ram.numeric' => 'RAM harus berupa angka',
+            'ram.required' => 'RAM tidak boleh kosong',
+            'ram.numeric' => 'RAM harus berupa angka',
 
-        'storage.required' => 'Storage tidak boleh kosong',
-        'storage.numeric' => 'Storage harus berupa angka',
+            'storage.required' => 'Storage tidak boleh kosong',
+            'storage.numeric' => 'Storage harus berupa angka',
 
-        'release_year.required' => 'Tahun rilis tidak boleh kosong',
-        'release_year.digits' => 'Tahun rilis harus 4 digit',
-    ]);
+            'release_year.required' => 'Tahun rilis tidak boleh kosong',
+            'release_year.digits' => 'Tahun rilis harus 4 digit',
+        ]);
 
-    Smartphone::create($validated);
-    return to_route('smartphone.index')->withSuccess('Data berhasil ditambahkan');
+        Smartphone::create($validated);
+
+        return to_route('smartphone.index')->withSuccess('Data berhasil ditambahkan');
 
     }
 
@@ -74,7 +77,7 @@ class SmartphoneController extends Controller
         return view('smartphone.edit', [
             'title' => 'Edit Smartphone',
             'smartphone' => $smartphone,
-            ]);
+        ]);
     }
 
     /**
@@ -88,24 +91,25 @@ class SmartphoneController extends Controller
             'ram' => 'required|numeric',
             'storage' => 'required|numeric',
             'release_year' => 'required|numeric|digits:4',
-    ],[
-        'name.required' => 'Nama tidak boleh kosong',
-        'name.max' => 'Nama tidak boleh lebih dari :max karakter',
-        'price.required' => 'Harga tidak boleh kosong',
-        'price.numeric' => 'Harga harus berupa angka',
+        ], [
+            'name.required' => 'Nama tidak boleh kosong',
+            'name.max' => 'Nama tidak boleh lebih dari :max karakter',
+            'price.required' => 'Harga tidak boleh kosong',
+            'price.numeric' => 'Harga harus berupa angka',
 
-        'ram.required' => 'RAM tidak boleh kosong',
-        'ram.numeric' => 'RAM harus berupa angka',
+            'ram.required' => 'RAM tidak boleh kosong',
+            'ram.numeric' => 'RAM harus berupa angka',
 
-        'storage.required' => 'Storage tidak boleh kosong',
-        'storage.numeric' => 'Storage harus berupa angka',
+            'storage.required' => 'Storage tidak boleh kosong',
+            'storage.numeric' => 'Storage harus berupa angka',
 
-        'release_year.required' => 'Tahun rilis tidak boleh kosong',
-        'release_year.digits' => 'Tahun rilis harus 4 digit',
-    ]);
+            'release_year.required' => 'Tahun rilis tidak boleh kosong',
+            'release_year.digits' => 'Tahun rilis harus 4 digit',
+        ]);
 
-    $smartphone->update($validated);
-    return to_route('smartphone.index')->withSuccess('Data berhasil diubah');
+        $smartphone->update($validated);
+
+        return to_route('smartphone.index')->withSuccess('Data berhasil diubah');
     }
 
     /**
@@ -114,6 +118,7 @@ class SmartphoneController extends Controller
     public function destroy(Smartphone $smartphone)
     {
         $smartphone->delete($smartphone);
+
         return to_route('smartphone.index')->withSuccess('Data berhasil dihapus');
     }
 }

@@ -10,25 +10,45 @@
 
     <a class="btn btn-primary mb-3" href="{{ route('smartphone.create') }}" role="button">Create</a>
 
-    <ul class="list-group">
-        @foreach ($smartphones as $smartphone)
-            <li class="list-group-item">
-                {{ $loop->iteration }}. {{ $smartphone->name }} -- Rp{{ number_format($smartphone->price) }}
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-warning">
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>RAM</th>
+                <th>Storage</th>
+                <th>Tahun Rilis</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
 
-                <a class="btn btn-warning btn-sm" href="{{ route('smartphone.edit', $smartphone) }}"
-                    role="button">Edit</a>
+        <tbody>
+            @foreach ($smartphones as $smartphone)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $smartphone->name }}</td>
+                    <td>Rp{{ number_format($smartphone->price) }}</td>
+                    <td>{{ $smartphone->ram }} GB</td>
+                    <td>{{ $smartphone->storage }} GB</td>
+                    <td>{{ $smartphone->release_year }}</td>
 
-                <form action="{{ route('smartphone.destroy', $smartphone) }}" method="POST" class="d-inline">
-                    @method('DELETE')
-                    @csrf
+                    <td>
 
-                    <button type="submit" class="btn btn-danger btn-sm"
-                        onclick="return confirm('Anda yakin?')">Delete</button>
-                </form>
+                        <a class="btn btn-warning btn-sm" href="{{ route('smartphone.edit', $smartphone) }}"
+                            role="button">Edit</a>
 
-            </li>
-        @endforeach
+                        <form action="{{ route('smartphone.destroy', $smartphone) }}" method="POST" class="d-inline">
+                            @method('DELETE')
+                            @csrf
 
-    </ul>
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Anda yakin?')">Delete</button>
+                        </form>
+
+                        </li>
+            @endforeach
+
+            </ul>
 
 </x-app>
